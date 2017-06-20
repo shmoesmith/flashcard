@@ -1,11 +1,14 @@
 import React from 'react'
 
-class CardsList extends React.component {
+class CardsList extends React.Component {
   render() {
+    let cards = this.props.cards.map( (card) => {
+      return (<li key={card.id}>{card.name}</li>)
+    });
     return (
-      <div>
-        list placeholder
-      </div>
+    <ul>
+        {cards}
+    </ul>
     )
   }
 }
