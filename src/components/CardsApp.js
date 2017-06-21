@@ -3,13 +3,13 @@ import CardsList from './CardsList'
 import CardForm from './CardForm'
 
 class CardsApp extends React.Component {
-   state = { cards: [{ question: 'Who is the boss', answer: 'Tony Danza' }], id: 0 }
+   state = { cards: [{ question: 'Who is the boss', answer: 'Tony Danza', id: 0 }], id: 1 }
 
   addCardsCard = (newQuestion, newAnswer) => { 
       let id = ++this.state.id;
       this.setState({
         cards: [...this.state.cards,
-            { question: newQuestion, answer: newAnswer}],
+            { question: newQuestion, answer: newAnswer, id }],
         id
       })
     }
