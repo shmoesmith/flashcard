@@ -3,23 +3,23 @@ import React from 'react'
 class CardsList extends React.Component {
   
   render() {
-    let cards = this.props.cards.map( (card) => {
-      let show = false;
-
-      showAnswer = () => {
-        show = !show;
-      }
-
-      return (<li>{card.question} <button onClick={showAnswer}>Show Answer!</button></li>
-        if show? { <li>{card.answer}</li> }
+    const cards = this.props.cards.map( (card) => {
+      return (
+        <li>
+          { card.isFlipped? card.answer : card.question } 
+          <button onClick={ () => this.props.cardFlip(card.id)}>Show Answer!</button>
+          {''}
+          <button onClick={ () => this.props.deleteCard(card.id)}>Delete Card</button>
+        </li>
       )
      }   
+   );
+
+    return(
+    <ul>
+        {cards}
+    </ul>
     )
-        return (
-        <ul>
-            {cards}
-        </ul>
-        )
   }
 }
 

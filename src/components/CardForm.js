@@ -5,8 +5,12 @@ class CardForm extends React.Component {
 
     
     handleSubmit = (event) => {
-      event.preventDefault();
-  }
+        event.preventDefault();
+        const { question, answer } = this.state;
+        this.props.addCardsCard(question, answer);
+        this.setState({ question: '', answer:'' });
+    }
+
     handleInputChange = (event) => {
         const target = event.target;
         const value = target.value;
@@ -18,7 +22,7 @@ class CardForm extends React.Component {
     }
     render() {
         return(
-        <form onSubmit={this.addCard}>
+        <form onSubmit={this.handleSubmit}>
             <input
                 name='question'
                 placeholder="add a question"
