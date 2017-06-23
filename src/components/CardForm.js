@@ -4,6 +4,14 @@ class CardForm extends React.Component {
     state = { question: '', answer: '' }
 
     
+    
+    //some function here that:
+    //does a component mount?
+    //finds the out if there is an ID on the card
+    //if no id, set state to a default
+    //else set the state to the current cards quesion/answer
+
+    
     handleSubmit = (event) => {
         event.preventDefault();
         const { question, answer } = this.state;

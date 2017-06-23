@@ -1,26 +1,17 @@
 import React from 'react'
+import Card from './Card'
 
-class CardsList extends React.Component {
-  
-  render() {
-    const cards = this.props.cards.map( (card) => {
-      return (
-        <li>
-          { card.isFlipped? card.answer : card.question } 
-          <button onClick={ () => this.props.cardFlip(card.id)}>Show Answer!</button>
-          {''}
-          <button onClick={ () => this.props.deleteCard(card.id)}>Delete Card</button>
-        </li>
-      )
-     }   
-   );
+    
+const CardsList = ( props ) => {
+    const cardslist = props.cards.map( (card) => {
+      return <Card card={card} cardFlip={props.cardFlip} deleteCard={props.deleteCard} />
+    });
 
-    return(
+  return(
     <ul>
-        {cards}
+      {cardslist}
     </ul>
-    )
-  }
+  );
 }
 
 export default CardsList;

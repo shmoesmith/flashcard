@@ -15,6 +15,19 @@ class CardsApp extends React.Component {
 		})
 	}
 
+//create a function that takes in question, answer, and ID
+
+    updateCard = (editedQ, editedA, existingID) => {
+      this.setState({
+		  cards: [...this.state.cards, {question: editedQ, answer: editedA, id: existingID, isFlipped:false }]
+	  })
+	  
+	  //run component did mount
+      //find out if there is an id
+      //if no id, set state to a default and render blank form
+      //if id, populate form so id can be updated
+    }
+
 	//create a function that takes an id and update state of that card to isFlipped true
 	cardFlip = (id) => {
 		const flashcards = this.state.cards.map( (card) => {
@@ -38,8 +51,10 @@ class CardsApp extends React.Component {
   render() {
 		return (
 			<div>
+				<h3>Begin flashcards by adding a question and answer!</h3>
 				<CardForm addCardsCard={this.addCardsCard} />
-				<CardsList cards={this.state.cards} cardFlip={this.cardFlip} deleteCard={this.deleteCard} />
+				<CardsList cards={this.state.cards} cardFlip={this.cardFlip} deleteCard={this.deleteCard}
+				updateCard={this.updateCard} />
 			</div>
 		)
   }
